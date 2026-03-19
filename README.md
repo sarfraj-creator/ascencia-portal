@@ -1,38 +1,39 @@
-# Ascencia Business School Malta – React UI
+# Ascencia Business School Malta
 
-A fully static, responsive multi-page React website built as a frontend assignment.
+Redesigned frontend for Ascencia Business School Malta — built with React + Vite.
 
-## Pages
-- **Home** – Hero, stats, programmes, why us, testimonials, events, CTA
-- **About** – Mission, values, timeline, accreditations, team, Malta info
-- **Contact** – Contact form, office info, map, FAQ accordion
+## Live Demo
 
-## Tech Stack
-- React 18 (functional components, hooks)
-- Vite
-- Plain CSS (no UI frameworks)
-- react-icons
-- Google Fonts (Playfair Display + DM Sans)
+| Page | URL |
+|------|-----|
+| Home | https://ascencia-portal.vercel.app |
+| About | https://ascencia-portal.vercel.app/about |
+| Contact | https://ascencia-portal.vercel.app/contact |
 
-## Setup
+## Screenshots
+
+### Home
+![Home Page](./screenshots/home.png)
+
+### About
+![About Page](./screenshots/about.png)
+
+### Contact
+![Contact Page](./screenshots/contact.png)
+
+## How to Run
 
 ```bash
+# Install dependencies
 npm install
+
+# Start dev server
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173)
-
-## Build
+Open http://localhost:5173
 
 ```bash
+# Build for production
 npm run build
-npm run preview
 ```
-
-## Design System
-- Primary: `#c0162c` (Crimson – from logo)
-- Navy: `#0d1b2a`
-- Font Display: Playfair Display
-- Font Body: DM Sans
-- Fully responsive: mobile, tablet, desktop
