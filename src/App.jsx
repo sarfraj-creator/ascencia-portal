@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import Navbar from './components/common/Navbar'
 import Footer from './components/common/Footer'
 import Home from './pages/Home'
@@ -6,39 +7,36 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import './styles/global.css'
 
-export default function App() {
-  const [page, setPage] = useState('home')
+const PAGE_TITLES = {
+  '/':        'Ascencia Business School Malta | World-Class Education',
+  '/about':   'About Us | Ascencia Business School Malta',
+  '/contact': 'Contact & Apply | Ascencia Business School Malta',
+}
 
-  const navigate = (target) => {
-    setPage(target)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+export default function App() {
+  const navigate  = useNavigate()
+  const location  = useLocation()
 
   useEffect(() => {
-    const titles = {
-      home: 'Ascencia Business School Malta | World-Class Education',
-      about: 'About Us | Ascencia Business School Malta',
-      contact: 'Contact Us | Ascencia Business School Malta',
-    }
-    document.title = titles[page] || titles.home
-  }, [page])
+    document.title = PAGE_TITLES[location.pathname] || PAGE_TITLES['/']
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [location.pathname])
 
-  const renderPage = () => {
-    switch (page) {
-      case 'about':
-        return <About navigate={navigate} />
-      case 'contact':
-        return <Contact navigate={navigate} />
-      default:
-        return <Home navigate={navigate} />
-    }
+  const go = (page) => {
+    const routes = { home: '/', about: '/about', contact: '/contact' }
+    navigate(routes[page] ?? '/')
   }
 
   return (
     <div className="app">
-      <Navbar currentPage={page} navigate={navigate} />
-      {renderPage()}
-      <Footer navigate={navigate} />
+      <Navbar currentPage={location.pathname} navigate={go} />
+      <Routes>
+        <Route path="/"        element={<Home    navigate={go} />} />
+        <Route path="/about"   element={<About   navigate={go} />} />
+        <Route path="/contact" element={<Contact navigate={go} />} />
+        <Route path="*"        element={<Home    navigate={go} />} />
+      </Routes>
+      <Footer navigate={go} />
     </div>
   )
 }
