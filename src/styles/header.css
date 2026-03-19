@@ -1,0 +1,55 @@
+/* src/styles/header.css */
+.main-header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background-color: var(--clr-bg-white);
+  border-bottom: 1px solid #edf2f7;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-sm);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo img {
+  height: 45px;
+  width: auto;
+  display: block;
+}
+
+.nav-menu {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.nav-link {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--clr-text-main);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--clr-primary);
+}
+
+/* Mobile Toggle - Hidden by default */
+.mobile-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none; /* In a real app, implement a drawer here */
+  }
+  .mobile-toggle {
+    display: block;
+  }
+}

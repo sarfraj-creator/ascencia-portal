@@ -1,0 +1,40 @@
+/* src/styles/variables.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Brand Colors from Logo */
+  --clr-brand-primary: #0a0a0a;    
+  --clr-brand-accent: #e30613;     
+  --clr-brand-bg: #ffffff;     
+  
+  /* Modern UI Palette */
+  --clr-surface: #f8fafc;
+  --clr-text-main: #1e293b;
+  --clr-text-muted: #64748b;
+  --clr-border: #e2e8f0;
+
+  /* Spacing System (Production Ready) */
+  --space-unit: 8px;
+  --container-width: 1200px;
+  --section-padding: 80px 5%;
+  
+  /* Modern UI Details */
+  --radius-md: 12px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--clr-text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
